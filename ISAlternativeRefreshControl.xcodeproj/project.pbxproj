@@ -31,6 +31,12 @@
 		7F6A657D1754EBB200CAEEE0 /* ISGumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A657C1754EBB200CAEEE0 /* ISGumViewController.m */; };
 		7F6A6583175501E200CAEEE0 /* ISGumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A6582175501E200CAEEE0 /* ISGumView.m */; };
 		7FCC4E5B175517C600FF6066 /* ISScalingActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC4E5A175517C600FF6066 /* ISScalingActivityIndicatorView.m */; };
+		7FCC4E5E17551ABE00FF6066 /* ISArrowRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC4E5D17551ABE00FF6066 /* ISArrowRefreshControl.m */; };
+		7FCC4E6317551C5000FF6066 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC4E5F17551C5000FF6066 /* arrow.png */; };
+		7FCC4E6417551C5000FF6066 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC4E6017551C5000FF6066 /* arrow@2x.png */; };
+		7FCC4E6517551C5000FF6066 /* ISRefresgControlIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC4E6117551C5000FF6066 /* ISRefresgControlIcon.png */; };
+		7FCC4E6617551C5000FF6066 /* ISRefresgControlIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC4E6217551C5000FF6066 /* ISRefresgControlIcon@2x.png */; };
+		7FCC4E6917551DC400FF6066 /* ISArrowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC4E6817551DC400FF6066 /* ISArrowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +103,14 @@
 		7F6A6582175501E200CAEEE0 /* ISGumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISGumView.m; sourceTree = "<group>"; };
 		7FCC4E59175517C600FF6066 /* ISScalingActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISScalingActivityIndicatorView.h; sourceTree = "<group>"; };
 		7FCC4E5A175517C600FF6066 /* ISScalingActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISScalingActivityIndicatorView.m; sourceTree = "<group>"; };
+		7FCC4E5C17551ABE00FF6066 /* ISArrowRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISArrowRefreshControl.h; sourceTree = "<group>"; };
+		7FCC4E5D17551ABE00FF6066 /* ISArrowRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISArrowRefreshControl.m; sourceTree = "<group>"; };
+		7FCC4E5F17551C5000FF6066 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		7FCC4E6017551C5000FF6066 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		7FCC4E6117551C5000FF6066 /* ISRefresgControlIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ISRefresgControlIcon.png; sourceTree = "<group>"; };
+		7FCC4E6217551C5000FF6066 /* ISRefresgControlIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ISRefresgControlIcon@2x.png"; sourceTree = "<group>"; };
+		7FCC4E6717551DC400FF6066 /* ISArrowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISArrowViewController.h; sourceTree = "<group>"; };
+		7FCC4E6817551DC400FF6066 /* ISArrowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISArrowViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +219,8 @@
 			children = (
 				7F2814721754E1F300C72D19 /* ISAppDelegate.h */,
 				7F2814731754E1F300C72D19 /* ISAppDelegate.m */,
+				7FCC4E5C17551ABE00FF6066 /* ISArrowRefreshControl.h */,
+				7FCC4E5D17551ABE00FF6066 /* ISArrowRefreshControl.m */,
 				7F6A657A1754EBA200CAEEE0 /* ISGumRefreshControl */,
 				7F6A65791754EB9A00CAEEE0 /* ViewControllers */,
 				7F28146A1754E1F300C72D19 /* Supporting Files */,
@@ -222,6 +238,10 @@
 				7F2814751754E1F300C72D19 /* Default.png */,
 				7F2814771754E1F300C72D19 /* Default@2x.png */,
 				7F2814791754E1F300C72D19 /* Default-568h@2x.png */,
+				7FCC4E5F17551C5000FF6066 /* arrow.png */,
+				7FCC4E6017551C5000FF6066 /* arrow@2x.png */,
+				7FCC4E6117551C5000FF6066 /* ISRefresgControlIcon.png */,
+				7FCC4E6217551C5000FF6066 /* ISRefresgControlIcon@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,6 +255,8 @@
 				7F2814821754E24500C72D19 /* ISEmptyViewController.m */,
 				7F6A657B1754EBB200CAEEE0 /* ISGumViewController.h */,
 				7F6A657C1754EBB200CAEEE0 /* ISGumViewController.m */,
+				7FCC4E6717551DC400FF6066 /* ISArrowViewController.h */,
+				7FCC4E6817551DC400FF6066 /* ISArrowViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -354,6 +376,10 @@
 				7F2814761754E1F300C72D19 /* Default.png in Resources */,
 				7F2814781754E1F300C72D19 /* Default@2x.png in Resources */,
 				7F28147A1754E1F300C72D19 /* Default-568h@2x.png in Resources */,
+				7FCC4E6317551C5000FF6066 /* arrow.png in Resources */,
+				7FCC4E6417551C5000FF6066 /* arrow@2x.png in Resources */,
+				7FCC4E6517551C5000FF6066 /* ISRefresgControlIcon.png in Resources */,
+				7FCC4E6617551C5000FF6066 /* ISRefresgControlIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +429,8 @@
 				7F6A657D1754EBB200CAEEE0 /* ISGumViewController.m in Sources */,
 				7F6A6583175501E200CAEEE0 /* ISGumView.m in Sources */,
 				7FCC4E5B175517C600FF6066 /* ISScalingActivityIndicatorView.m in Sources */,
+				7FCC4E5E17551ABE00FF6066 /* ISArrowRefreshControl.m in Sources */,
+				7FCC4E6917551DC400FF6066 /* ISArrowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

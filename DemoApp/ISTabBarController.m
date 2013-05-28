@@ -1,6 +1,7 @@
 #import "ISTabBarController.h"
 #import "ISEmptyViewController.h"
 #import "ISGumViewController.h"
+#import "ISArrowViewController.h"
 
 @implementation ISTabBarController
 
@@ -9,7 +10,8 @@
     self = [super init];
     if (self) {
         self.viewControllers = @[[self emptyViewController],
-                                 [self gumViewController], ];
+                                 [self gumViewController],
+                                 [self arrowViewController], ];
     }
     return self;
 }
@@ -28,6 +30,14 @@
 {
     ISGumViewController *viewController = [[ISGumViewController alloc] init];
     viewController.tabBarItem.title = @"Gum";
+    
+    return viewController;
+}
+
+- (UIViewController *)arrowViewController
+{
+    ISArrowViewController *viewController = [[ISArrowViewController alloc] init];
+    viewController.tabBarItem.title = @"Arrow";
     
     return viewController;
 }
