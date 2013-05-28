@@ -1,5 +1,4 @@
 #import "ISTabBarController.h"
-#import "ISEmptyViewController.h"
 #import "ISGumViewController.h"
 #import "ISArrowViewController.h"
 
@@ -9,22 +8,13 @@
 {
     self = [super init];
     if (self) {
-        self.viewControllers = @[[self emptyViewController],
-                                 [self gumViewController],
+        self.viewControllers = @[[self gumViewController],
                                  [self arrowViewController], ];
     }
     return self;
 }
 
 #pragma mark - tabs
-
-- (UIViewController *)emptyViewController
-{
-    ISEmptyViewController *viewController = [[ISEmptyViewController alloc] init];
-    viewController.tabBarItem.title = @"Empty";
-    
-    return viewController;
-}
 
 - (UIViewController *)gumViewController
 {
