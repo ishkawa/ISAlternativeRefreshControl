@@ -5,14 +5,6 @@ static CGFloat const ISMainCircleMinRadius = 10.f;
 static CGFloat const ISSubCircleMaxRadius  = 16.f;
 static CGFloat const ISSubCircleMinRadius  = 2.f;
 
-@interface ISGumView ()
-
-@property (nonatomic) CGFloat mainRadius;
-@property (nonatomic) CGFloat subRadius;
-@property (nonatomic) BOOL shrinking;
-
-@end
-
 @implementation ISGumView
 
 - (id)initWithFrame:(CGRect)frame
@@ -35,10 +27,14 @@ static CGFloat const ISSubCircleMinRadius  = 2.f;
 
 - (void)initialize
 {
+    self.backgroundColor = [UIColor clearColor];
+    
     self.mainRadius = ISMainCircleMaxRadius;
     self.subRadius  = ISMainCircleMaxRadius;
     
-    self.backgroundColor = [UIColor blueColor];
+    self.imageView = [[UIImageView alloc] init];
+    self.imageView.image = [UIImage imageNamed:@"ISRefresgControlIcon"];
+    [self addSubview:self.imageView];
 }
 
 #pragma mark -
@@ -47,13 +43,14 @@ static CGFloat const ISSubCircleMinRadius  = 2.f;
 {
     self.shrinking = YES;
     
-    [self shrinkWithDistanceDiff:5.f interval:0.0115];
+    [self shrinkWithDistanceDiff:5.f interval:0.01];
 }
 
 - (void)shrinkWithDistanceDiff:(CGFloat)distanceDiff interval:(NSTimeInterval)interval
 {
     if (self.distance < 0.f) {
         self.shrinking = NO;
+        self.hidden = YES;
         
         return;
     }
@@ -75,6 +72,7 @@ static CGFloat const ISSubCircleMinRadius  = 2.f;
     if (self.distance <= 0.f) {
         return;
     }
+    self.hidden = NO;
     
     if (self.shrinking) {
         self.mainRadius = ISMainCircleMinRadius*pow((self.distance/self.maxDistance), 0.1);
@@ -88,8 +86,9 @@ static CGFloat const ISSubCircleMinRadius  = 2.f;
         self.mainRadius = ISMainCircleMaxRadius-pow(((self.distance)/self.maxDistance), 1.1)*(ISMainCircleMaxRadius-ISMainCircleMinRadius);
         self.subRadius  = ISSubCircleMaxRadius-pow(((self.distance)/self.maxDistance), 1.3)*(ISSubCircleMaxRadius-ISSubCircleMinRadius);
     }
-//    self.imageView.frame = CGRectMake(0, 0, self.mainRadius*2-5, self.mainRadius*2-5);
-//    self.imageView.center = CGPointMake(self.frame.size.width/2.f, self.mainRadius-2.f + self.distance * 0.03);
+    
+    self.imageView.frame = CGRectMake(0, 0, self.mainRadius*2-5, self.mainRadius*2-5);
+    self.imageView.center = CGPointMake(self.frame.size.width/2.f, self.mainRadius-2.f + self.distance * 0.03 + 3.25f);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGMutablePathRef path = CGPathCreateMutable();
@@ -129,15 +128,15 @@ static CGFloat const ISSubCircleMinRadius  = 2.f;
     
     CGAffineTransform transform = CGAffineTransformMakeTranslation(self.frame.size.width/2.f - self.mainRadius,
                                                                    3.f);
-    CGMutablePathRef hogePath = CGPathCreateMutable();
-    CGPathAddPath(hogePath, &transform, path);
+    CGMutablePathRef offsetPath = CGPathCreateMutable();
+    CGPathAddPath(offsetPath, &transform, path);
     
-    CGContextAddPath(context, hogePath);
+    CGContextAddPath(context, offsetPath);
     CGContextSetFillColorWithColor(context, [UIColor colorWithRed:.607f green:.635f blue:.670f alpha:1.f].CGColor);
     CGContextSetShadow(context, CGSizeMake(0.f, .5f), 1.f);
     CGContextFillPath(context);
     CGPathRelease(path);
-    CGPathRelease(hogePath);
+    CGPathRelease(offsetPath);
 }
 
 @end

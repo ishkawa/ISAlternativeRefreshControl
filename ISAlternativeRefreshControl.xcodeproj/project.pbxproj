@@ -30,6 +30,7 @@
 		7F2814891754E8FC00C72D19 /* ISGumRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2814881754E8FC00C72D19 /* ISGumRefreshControl.m */; };
 		7F6A657D1754EBB200CAEEE0 /* ISGumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A657C1754EBB200CAEEE0 /* ISGumViewController.m */; };
 		7F6A6583175501E200CAEEE0 /* ISGumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A6582175501E200CAEEE0 /* ISGumView.m */; };
+		7FCC4E5B175517C600FF6066 /* ISScalingActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC4E5A175517C600FF6066 /* ISScalingActivityIndicatorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		7F6A657C1754EBB200CAEEE0 /* ISGumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISGumViewController.m; sourceTree = "<group>"; };
 		7F6A6581175501E200CAEEE0 /* ISGumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISGumView.h; sourceTree = "<group>"; };
 		7F6A6582175501E200CAEEE0 /* ISGumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISGumView.m; sourceTree = "<group>"; };
+		7FCC4E59175517C600FF6066 /* ISScalingActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISScalingActivityIndicatorView.h; sourceTree = "<group>"; };
+		7FCC4E5A175517C600FF6066 /* ISScalingActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISScalingActivityIndicatorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +205,7 @@
 			children = (
 				7F2814721754E1F300C72D19 /* ISAppDelegate.h */,
 				7F2814731754E1F300C72D19 /* ISAppDelegate.m */,
-				7F6A657A1754EBA200CAEEE0 /* Views */,
+				7F6A657A1754EBA200CAEEE0 /* ISGumRefreshControl */,
 				7F6A65791754EB9A00CAEEE0 /* ViewControllers */,
 				7F28146A1754E1F300C72D19 /* Supporting Files */,
 			);
@@ -236,15 +239,17 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		7F6A657A1754EBA200CAEEE0 /* Views */ = {
+		7F6A657A1754EBA200CAEEE0 /* ISGumRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
 				7F2814871754E8FC00C72D19 /* ISGumRefreshControl.h */,
 				7F2814881754E8FC00C72D19 /* ISGumRefreshControl.m */,
 				7F6A6581175501E200CAEEE0 /* ISGumView.h */,
 				7F6A6582175501E200CAEEE0 /* ISGumView.m */,
+				7FCC4E59175517C600FF6066 /* ISScalingActivityIndicatorView.h */,
+				7FCC4E5A175517C600FF6066 /* ISScalingActivityIndicatorView.m */,
 			);
-			name = Views;
+			name = ISGumRefreshControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +402,7 @@
 				7F2814891754E8FC00C72D19 /* ISGumRefreshControl.m in Sources */,
 				7F6A657D1754EBB200CAEEE0 /* ISGumViewController.m in Sources */,
 				7F6A6583175501E200CAEEE0 /* ISGumView.m in Sources */,
+				7FCC4E5B175517C600FF6066 /* ISScalingActivityIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

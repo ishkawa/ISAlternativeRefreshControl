@@ -1,12 +1,6 @@
 #import "ISGumRefreshControl.h"
+#import "ISScalingActivityIndicatorView.h"
 #import "ISGumView.h"
-
-@interface ISGumRefreshControl ()
-
-@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) ISGumView *gumView;
-
-@end
 
 @implementation ISGumRefreshControl
 
@@ -33,16 +27,20 @@
     self.clipsToBounds = NO;
     self.backgroundColor = [UIColor clearColor];
     
-    self.threshold = -60.f;
-    self.imageView = [[UIImageView alloc] init];
-//    self.imageView.frame = CGRectMake(0, 0, self.mainRadius*2-12, self.mainRadius*2-12);
-//    self.imageView.center = CGPointMake(self.frame.size.width/2.f, self.mainRadius);
-    self.imageView.image = [UIImage imageNamed:@"ISRefresgControlIcon"];
-    [self addSubview:self.imageView];
+    self.indicatorView = [[ISScalingActivityIndicatorView alloc] init];
+    [self addSubview:self.indicatorView];
     
     self.gumView = [[ISGumView alloc] init];
     self.gumView.frame = CGRectMake(0.f, 0.f, self.frame.size.width, self.frame.size.height);
     [self addSubview:self.gumView];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.gumView.frame = CGRectMake(0.f, 0.f, self.frame.size.width, 200.f);
+    self.indicatorView.frame = CGRectMake(self.frame.size.width/2.f-15, 25-13, 30, 30);
 }
 
 #pragma mark - ISAlternativeRefreshControl events
@@ -50,7 +48,7 @@
 - (void)didChangeProgress
 {
     if (self.refreshingState == ISRefreshingStateNormal) {
-        self.gumView.frame = CGRectMake(0.f, 0.f, self.frame.size.width, 200.f);
+        self.gumView.maxDistance = ABS(self.threshold) - 35;
         
         if (self.progress <= .35f) {
             self.gumView.distance = 1.f;
@@ -65,12 +63,13 @@
 - (void)willChangeRefreshingState:(ISRefreshingState)refreshingState
 {
     switch (refreshingState) {
-        case ISRefreshingStateNormal:
-            self.alpha = 1.f;
-            break;
-            
         case ISRefreshingStateRefreshing:
             [self.gumView shrink];
+            [self.indicatorView startAnimating];
+            break;
+            
+        case ISRefreshingStateRefreshed:
+            [self.indicatorView stopAnimating];
             break;
             
         default: break;

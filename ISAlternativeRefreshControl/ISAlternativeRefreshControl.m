@@ -16,7 +16,7 @@ static CGFloat const FRTRefreshControlThreshold = -110.f;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.threshold = -110.f;
+        self.threshold = -90.f;
     }
     return self;
 }
@@ -25,7 +25,7 @@ static CGFloat const FRTRefreshControlThreshold = -110.f;
 {
     self = [super initWithCoder:coder];
     if (self) {
-        self.threshold = -110.f;
+        self.threshold = -90.f;
     }
     return self;
 }
@@ -89,7 +89,7 @@ static CGFloat const FRTRefreshControlThreshold = -110.f;
         return;
     }
     
-    CGFloat progress = [(UIScrollView *)self.superview contentOffset].y / FRTRefreshControlThreshold;
+    CGFloat progress = [(UIScrollView *)self.superview contentOffset].y / self.threshold;
     [self willChangeProgress:progress];
     [self setProgress:progress];
     [self didChangeProgress];
@@ -106,7 +106,7 @@ static CGFloat const FRTRefreshControlThreshold = -110.f;
     
     switch (self.refreshingState) {
         case ISRefreshingStateNormal:
-            if (offset < FRTRefreshControlThreshold) {
+            if (offset < self.threshold) {
                 [self beginRefreshing];
                 [self sendActionsForControlEvents:UIControlEventValueChanged];
             }
