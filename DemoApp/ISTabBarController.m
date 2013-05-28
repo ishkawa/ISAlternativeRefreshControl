@@ -1,6 +1,7 @@
 #import "ISTabBarController.h"
 #import "ISGumViewController.h"
 #import "ISArrowViewController.h"
+#import "ISGoogleViewController.h"
 
 @implementation ISTabBarController
 
@@ -9,7 +10,8 @@
     self = [super init];
     if (self) {
         self.viewControllers = @[[self gumViewController],
-                                 [self arrowViewController], ];
+                                 [self arrowViewController],
+                                 [self googleViewController], ];
     }
     return self;
 }
@@ -28,6 +30,14 @@
 {
     ISArrowViewController *viewController = [[ISArrowViewController alloc] init];
     viewController.tabBarItem.title = @"Arrow";
+    
+    return viewController;
+}
+
+- (UIViewController *)googleViewController
+{
+    ISGoogleViewController *viewController = [[ISGoogleViewController alloc] init];
+    viewController.tabBarItem.title = @"Google";
     
     return viewController;
 }
