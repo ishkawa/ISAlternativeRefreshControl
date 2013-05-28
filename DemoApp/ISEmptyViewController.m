@@ -1,4 +1,5 @@
 #import "ISEmptyViewController.h"
+#import <ISAlternativeRefreshControl/ISAlternativeRefreshControl.h>
 
 @implementation ISEmptyViewController
 

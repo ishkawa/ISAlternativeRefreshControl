@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
-#import <ISAlternativeRefreshControl/ISAlternativeRefreshControl.h>
+
+@class ISAlternativeRefreshControl;
 
 @interface ISEmptyViewController : UITableViewController
 
