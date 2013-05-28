@@ -1,5 +1,6 @@
 #import "ISTabBarController.h"
 #import "ISEmptyViewController.h"
+#import "ISGumViewController.h"
 
 @implementation ISTabBarController
 
@@ -7,7 +8,8 @@
 {
     self = [super init];
     if (self) {
-        self.viewControllers = @[[self emptyViewController]];
+        self.viewControllers = @[[self emptyViewController],
+                                 [self gumViewController], ];
     }
     return self;
 }
@@ -18,6 +20,14 @@
 {
     ISEmptyViewController *viewController = [[ISEmptyViewController alloc] init];
     viewController.tabBarItem.title = @"Empty";
+    
+    return viewController;
+}
+
+- (UIViewController *)gumViewController
+{
+    ISGumViewController *viewController = [[ISGumViewController alloc] init];
+    viewController.tabBarItem.title = @"Gum";
     
     return viewController;
 }
