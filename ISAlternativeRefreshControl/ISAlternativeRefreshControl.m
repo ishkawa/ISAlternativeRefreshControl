@@ -1,8 +1,5 @@
 #import "ISAlternativeRefreshControl.h"
 
-static CGFloat const FRTRefreshControlHeight = 45.f;
-static CGFloat const FRTRefreshControlThreshold = -110.f;
-
 @interface ISAlternativeRefreshControl ()
 
 @property (nonatomic) ISRefreshingState refreshingState;
@@ -149,7 +146,7 @@ static CGFloat const FRTRefreshControlThreshold = -110.f;
     
     UIScrollView *scrollView = (id)self.superview;
     UIEdgeInsets inset = scrollView.contentInset;
-    inset.top += FRTRefreshControlHeight;
+    inset.top += self.frame.size.height;
     
     [UIView animateWithDuration:.3f
                      animations:^{
@@ -172,7 +169,7 @@ static CGFloat const FRTRefreshControlThreshold = -110.f;
     UIScrollView *scrollView = (id)self.superview;
     CGFloat offset = scrollView.contentOffset.y;
     UIEdgeInsets inset = scrollView.contentInset;
-    inset.top -= FRTRefreshControlHeight;
+    inset.top -= self.frame.size.height;
     
     [UIView animateWithDuration:.3f
                      animations:^{
