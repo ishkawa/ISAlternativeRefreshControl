@@ -7,6 +7,7 @@ static CGFloat const FRTRefreshControlThreshold = -110.f;
 
 @property (nonatomic) ISRefreshingState refreshingState;
 @property (nonatomic) CGFloat progress;
+@property (nonatomic) BOOL didOverThreshold;
 
 @end
 
@@ -106,9 +107,21 @@ static CGFloat const FRTRefreshControlThreshold = -110.f;
     
     switch (self.refreshingState) {
         case ISRefreshingStateNormal:
-            if (offset < self.threshold) {
-                [self beginRefreshing];
-                [self sendActionsForControlEvents:UIControlEventValueChanged];
+            if (self.firesOnRelease) {
+                if (scrollView.isTracking) {
+                    self.didOverThreshold = offset < self.threshold;
+                } else {
+                    if (self.didOverThreshold) {
+                        self.didOverThreshold = NO;
+                        [self beginRefreshing];
+                        [self sendActionsForControlEvents:UIControlEventValueChanged];
+                    }
+                }
+            } else {
+                if (offset < self.threshold) {
+                    [self beginRefreshing];
+                    [self sendActionsForControlEvents:UIControlEventValueChanged];
+                }
             }
             break;
             

@@ -219,8 +219,7 @@
 			children = (
 				7F2814721754E1F300C72D19 /* ISAppDelegate.h */,
 				7F2814731754E1F300C72D19 /* ISAppDelegate.m */,
-				7FCC4E5C17551ABE00FF6066 /* ISArrowRefreshControl.h */,
-				7FCC4E5D17551ABE00FF6066 /* ISArrowRefreshControl.m */,
+				7FCC4E6A175526AD00FF6066 /* ISArrowRefreshControl */,
 				7F6A657A1754EBA200CAEEE0 /* ISGumRefreshControl */,
 				7F6A65791754EB9A00CAEEE0 /* ViewControllers */,
 				7F28146A1754E1F300C72D19 /* Supporting Files */,
@@ -272,6 +271,15 @@
 				7FCC4E5A175517C600FF6066 /* ISScalingActivityIndicatorView.m */,
 			);
 			name = ISGumRefreshControl;
+			sourceTree = "<group>";
+		};
+		7FCC4E6A175526AD00FF6066 /* ISArrowRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				7FCC4E5C17551ABE00FF6066 /* ISArrowRefreshControl.h */,
+				7FCC4E5D17551ABE00FF6066 /* ISArrowRefreshControl.m */,
+			);
+			name = ISArrowRefreshControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

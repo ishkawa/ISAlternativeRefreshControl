@@ -23,6 +23,8 @@
 
 - (void)initialize
 {
+    self.firesOnRelease = YES;
+    
     self.indicatorView = [[UIActivityIndicatorView alloc] init];
     self.indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self addSubview:self.indicatorView];
@@ -47,13 +49,12 @@
     if (self.refreshingState == ISRefreshingStateNormal) {
         if (self.progress < .5) {
             self.imageView.transform = CGAffineTransformIdentity;
-        }
-        else if (self.progress < .9) {
-            CGFloat progress = (self.progress - .5f) / .4f;
+        } else {
+            CGFloat progress = (self.progress - .5f) / .5f;
+            if (progress > 1.f) {
+                progress = 1.f;
+            }
             self.imageView.transform = CGAffineTransformMakeRotation(-M_PI * progress);
-        }
-        else {
-            self.imageView.transform = CGAffineTransformMakeRotation(-M_PI);
         }
     }
 }
