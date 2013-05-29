@@ -39,7 +39,7 @@
     [super layoutSubviews];
     
     self.imageView.center = CGPointMake(self.frame.size.width / 2.f, self.frame.size.height / 2.f);
-    self.indicatorView.frame = CGRectMake(self.frame.size.width/2.f-15, 25-13, 30, 30);
+    self.indicatorView.frame = CGRectMake(self.frame.size.width/2.f-12, 25-13, 25, 25);
 }
 
 #pragma mark - ISAlternativeRefreshControl events
