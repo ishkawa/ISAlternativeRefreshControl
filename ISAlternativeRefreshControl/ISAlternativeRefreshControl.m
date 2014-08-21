@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.threshold = -90.f;
+        self.referenceContentInsetTop = 0.f;
     }
     return self;
 }
@@ -24,6 +25,7 @@
     self = [super initWithCoder:coder];
     if (self) {
         self.threshold = -90.f;
+        self.referenceContentInsetTop = 0.f;
     }
     return self;
 }
@@ -74,8 +76,8 @@
     }
     
     CGFloat offset = [(UIScrollView *)self.superview contentOffset].y;
-    if (offset < -self.frame.size.height) {
-        self.frame = CGRectMake(0.f, offset, self.frame.size.width, self.frame.size.height);
+    if (offset < -(self.frame.size.height+self.referenceContentInsetTop)) {
+        self.frame = CGRectMake(0.f, offset+self.referenceContentInsetTop, self.frame.size.width, self.frame.size.height);
     } else {
         self.frame = CGRectMake(0.f, -self.frame.size.height, self.frame.size.width, self.frame.size.height);
     }
@@ -87,7 +89,7 @@
         return;
     }
     
-    CGFloat progress = [(UIScrollView *)self.superview contentOffset].y / self.threshold;
+    CGFloat progress = ([(UIScrollView *)self.superview contentOffset].y + self.referenceContentInsetTop) / self.threshold;
     [self willChangeProgress:progress];
     [self setProgress:progress];
     [self didChangeProgress];
@@ -146,7 +148,7 @@
     
     UIScrollView *scrollView = (id)self.superview;
     UIEdgeInsets inset = scrollView.contentInset;
-    inset.top += self.frame.size.height;
+    inset.top = (self.referenceContentInsetTop + self.frame.size.height);
     
     [UIView animateWithDuration:.3f
                      animations:^{
@@ -169,7 +171,7 @@
     UIScrollView *scrollView = (id)self.superview;
     CGFloat offset = scrollView.contentOffset.y;
     UIEdgeInsets inset = scrollView.contentInset;
-    inset.top -= self.frame.size.height;
+    inset.top = self.referenceContentInsetTop;
     
     [UIView animateWithDuration:.3f
                      animations:^{

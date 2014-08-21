@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, ISRefreshingState) {
 @property (nonatomic, readonly) ISRefreshingState refreshingState;
 @property (nonatomic, readonly) CGFloat progress;
 @property (nonatomic) CGFloat threshold;
+@property (nonatomic) CGFloat referenceContentInsetTop;
 @property (nonatomic) BOOL firesOnRelease;
 
 #pragma mark - actions
