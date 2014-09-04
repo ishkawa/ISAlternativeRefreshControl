@@ -75,9 +75,9 @@
         return;
     }
     
-    CGFloat offset = [(UIScrollView *)self.superview contentOffset].y;
-    if (offset < -(self.frame.size.height+self.referenceContentInsetTop)) {
-        self.frame = CGRectMake(0.f, offset+self.referenceContentInsetTop, self.frame.size.width, self.frame.size.height);
+    CGFloat offset = ([(UIScrollView *)self.superview contentOffset].y + self.referenceContentInsetTop);
+    if (offset < -self.frame.size.height) {
+        self.frame = CGRectMake(0.f, offset, self.frame.size.width, self.frame.size.height);
     } else {
         self.frame = CGRectMake(0.f, -self.frame.size.height, self.frame.size.width, self.frame.size.height);
     }
@@ -102,7 +102,7 @@
     }
     
     UIScrollView *scrollView = (UIScrollView *)self.superview;
-    CGFloat offset = [scrollView contentOffset].y;
+    CGFloat offset = ([scrollView contentOffset].y + self.referenceContentInsetTop);
     
     switch (self.refreshingState) {
         case ISRefreshingStateNormal:
@@ -142,7 +142,7 @@
     if (self.isRefreshing) {
         return;
     }
-
+    
     [self willChangeRefreshingState:ISRefreshingStateRefreshing];
     self.refreshingState = ISRefreshingStateRefreshing;
     
@@ -169,7 +169,7 @@
     [self willChangeRefreshingState:ISRefreshingStateRefreshed];
     
     UIScrollView *scrollView = (id)self.superview;
-    CGFloat offset = scrollView.contentOffset.y;
+    CGFloat offset = (scrollView.contentOffset.y + self.referenceContentInsetTop);
     UIEdgeInsets inset = scrollView.contentInset;
     inset.top = self.referenceContentInsetTop;
     
